@@ -57,11 +57,14 @@ print(f"Amount after divider & somefee:", amount)
 print(" ")
 
 # API URL of Puzzle ARG
-api_url = f"https://wavescup.world/aggregator/calc?token0={TOKEN1ID}&token1={TOKEN2ID}&amountIn={amount}"
+api_url = f"https://waves.puzzle-aggr-api.com/aggregator/calc?token0={TOKEN1ID}&token1={TOKEN2ID}&amountIn={amount}"
+
+# Add headers directly to the API URL
+headers = {'Authorization': 'Bearer IIqbbwzJLdDKiOWvVTwaBEVSXzAjtd'}
 
 try:
     # Make the API request
-    response = requests.get(api_url)
+    response = requests.get(api_url, headers=headers)
 
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
