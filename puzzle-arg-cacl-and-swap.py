@@ -17,6 +17,8 @@ TOKEN2ID = 'WAVES'
 MaxSlippage = 0.95 # How much will be received after the swap, e.g., 5% less? If it exceeds the desired amount, the swap will be canceled
 divider = 1  # Set the desired divisor, e.g., 5, to swap 1/5 of the amount.
 AmountOfSomeFee = 0.10 # how much % to be deducted from the total amount
+PuzzleAgrFee = 0.9974 # 0.26% fee for puzzle aggregator
+
 #! If wanna remove fixed amount everytime don't forget to uncomment "somefee" and put a amount of "AmountOfSomeFee"
 
 # Fetch balance based on TOKEN1ID
@@ -92,7 +94,7 @@ try:
             # Proceed with the swap
             PuzzleSwapaddress = '3PGFHzVGT4NTigwCKP1NcwoXkodVZwvBuuU'  
             fee = 500000  # DEFAULT_INVOKE_SCRIPT_FEE - Waves
-            MinToReceive = int(estimatedOut * MaxSlippage) 
+            MinToReceive = int((estimatedOut * MaxSlippage) * PuzzleAgrFee)
 
             # Determine assetId based on TOKEN1ID
             assetId = TOKEN1ID if TOKEN1ID != "WAVES" else None

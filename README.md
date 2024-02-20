@@ -38,6 +38,7 @@ TOKEN2ID = 'Atqv59EYzjFGuitKVnMRk6H8FukjoV3ktPorbEys25on'  # Token intended to b
 MaxSlippage = 0.95  # Maximum acceptable slippage for the swap
 divider = 1  # Set the desired divisor, e.g., 5, to swap 1/5 of the amount
 AmountOfSomeFee = 0.10  # Percentage of total amount to be deducted as a fee, e.g., 10%
+PuzzleAgrFee = 0.9974 # (fixed fee) 0.26% for puzzle aggregator
 ```
 
 #### Using the tool
