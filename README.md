@@ -1,4 +1,4 @@
-# WFN Swaps via Puzzle ARG
+# WFN Swaps via Puzzle AGR
 
 System preparation:
 ```
