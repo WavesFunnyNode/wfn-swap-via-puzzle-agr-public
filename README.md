@@ -25,10 +25,10 @@ The tool facilitates swaps through Puzzle ARG. By leveraging the open API of the
 ```python
 
 # Set Node API
-ws.setNode(node='http://##.##.##.##:##', chain='mainnet')
+pw.setNode(node='http://##.##.##.##:##', chain='mainnet')
 
 # Initialize wallet with private key
-myAddress = ws.Address(privateKey='####')
+myAddress = pw.Address(privateKey='####')
 
 # Define tokens for swapping
 TOKEN1ID = 'WAVES'  # Token used for swapping with another token
