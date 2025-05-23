@@ -19,13 +19,15 @@ The tool facilitates swaps through Puzzle ARG. By leveraging the open API of the
 - Max Slippage (default is -5% of the amount of TokenID2).
 - Divide the amount to be swapped (TokenID1).
 - You can choose the percentage (or the fixed amount) from the TokenID1 amount to be deducted
-- All calculations are based on TokenID1. For example, if it is "WAVES," it will fetch the effective balance of the wallet. If it is some token ID, it will fetch the amount of this token ID using PyWaves.
+- All calculations are based on TokenID1. For example, if it is "WAVES," it will fetch the available balance of the wallet. If it is some token ID, it will fetch the amount of this token ID using PyWaves.
 
 ## 1. Configure your settings:
 ```python
 
 # Set Node API
-pw.setNode(node='http://##.##.##.##:##', chain='mainnet')
+NodeAPI = 'https://nodes.wavesnodes.com'
+
+pw.setNode(node=f'{NodeAPI}', chain='mainnet')
 
 # Initialize wallet with private key
 myAddress = pw.Address(privateKey='####')

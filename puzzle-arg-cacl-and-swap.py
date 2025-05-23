@@ -2,8 +2,10 @@ import requests
 import pywaves as pw
 import time
 
-# connects to a local mainnet node
-pw.setNode(node='http://##.##.##.##:###', chain='mainnet')
+# connects to a local or public mainnet node
+NodeAPI = 'https://nodes.wavesnodes.com'
+
+pw.setNode(node=f'{NodeAPI}', chain='mainnet')
 
 # Wallet
 myAddress = pw.Address(privateKey='####')  # private key from the wallet
@@ -23,17 +25,17 @@ PuzzleAgrFee = 0.9974 # 0.26% fee for puzzle aggregator
 
 # Fetch balance based on TOKEN1ID
 if TOKEN1ID == "WAVES":
-    # Fetch effective balance from the Waves Node API
-    waves_balance_response = requests.get(f'https://nodes.wavesnodes.com/addresses/effectiveBalance/{AddressFromPywaves}')
+    # Fetch available balance from the Waves Node API
+    waves_balance_response = requests.get(f'{NodeAPI}/addresses/balance/details/{AddressFromPywaves}')
     
     # Check if the request was successful (status code 200)
     if waves_balance_response.status_code == 200:
         # Parse the response JSON
         waves_balance_result = waves_balance_response.json()
-        # Extract the effective balance
-        waves_balance = waves_balance_result.get('balance', 0)
+        # Extract the available balance
+        waves_balance = waves_balance_result.get('available', 0)
         
-        # Set amount of effective balance following divider, somefee rules
+        # Set amount of available balance following divider, somefee rules
         preAmount = waves_balance // divider
         somefee = int(preAmount * AmountOfSomeFee)
         # If you want to remove a fixed amount every time, comment above and uncomment 'somefee' below.
