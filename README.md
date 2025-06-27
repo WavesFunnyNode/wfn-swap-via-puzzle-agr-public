@@ -6,7 +6,7 @@ sudo apt install build-essential
 sudo apt install python3-dev
 sudo apt install python3-pip
 sudo apt install python3-testresources
-pip3 install pywaves
+pip3 install pywaves-ce
 ```
 
 ## Introduction
